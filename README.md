@@ -81,6 +81,3 @@ This project uses **Manifest V3** and purely vanilla JavaScript (no frameworks) 
 
 - **Storage**: Used only to save your speed preference locally.
 - **ActiveTab / Host Permissions**: Requested only for `*.youtube.com` to inject the controller script. No data is collected or sent to external servers.
-
----
-Developed for the **YouTube Speed Controller** project.
