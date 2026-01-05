@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+    body {
+      width: 260px;
+      /* Slightly wider */
+      padding: 16px;
+      font-family: 'Inter', sans-serif;
+      background-color: #1a1a1a;
+      color: #fff;
+      user-select: none;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 16px;
+      text-align: center;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .speed-display {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .current-speed {
+      font-size: 36px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #3ea6ff 0%, #2b77ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 8px rgba(62, 166, 255, 0.3));
+    }
+
+    .slider-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      font-size: 12px;
+      color: #666;
+    }
+
+    input[type="range"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 100%;
+      height: 6px;
+      background: #333;
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      background: #3ea6ff;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0 8px rgba(62, 166, 255, 0.4);
+      transition: transform 0.2s;
+    }
+
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    .buttons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    button.speed-btn {
+      background: #2a2a2a;
+      border: 1px solid #333;
+      border-radius: 6px;
+      color: #ddd;
+      padding: 10px 0;
+      font-size: 13px;
+      font-weight: 500;
+      /* Font family inherited */
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    button.speed-btn:hover {
+      background: #333;
+      color: #fff;
+      border-color: #444;
+      transform: translateY(-1px);
+    }
+
+    button.speed-btn.reset {
+      background: rgba(62, 166, 255, 0.1);
+      color: #3ea6ff;
+      border-color: rgba(62, 166, 255, 0.2);
+    }
+
+    button.speed-btn.reset:hover {
+      background: rgba(62, 166, 255, 0.2);
+    }
+
+    .footer {
+      margin-top: 20px;
+      border-top: 1px solid #333;
+      padding-top: 12px;
+      font-size: 11px;
+      color: #555;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Speed Controller</h2>
+
+  <div class="speed-display">
+    <span class="current-speed" id="display-speed">1.00x</span>
+  </div>
+
+  <div class="slider-container">
+    <span>0.1</span>
+    <input type="range" id="speed-slider" min="0.1" max="10.0" step="0.1" value="1.0">
+    <span>10</span>
+  </div>
+
+  <div class="buttons-grid">
+    <button class="speed-btn" data-change="-0.1">-0.1x</button>
+    <button class="speed-btn reset" data-set="1.0">1.0x</button>
+    <button class="speed-btn" data-change="+0.15">+0.15x</button>
+    <button class="speed-btn" data-set="1.25">1.25x</button>
+    <button class="speed-btn" data-set="1.5">1.5x</button>
+    <button class="speed-btn" data-set="2.0">2.0x</button>
+    <button class="speed-btn" data-set="2.5">2.5x</button>
+    <button class="speed-btn" data-set="3.0">3.0x</button>
+    <button class="speed-btn" data-set="4.0">4.0x</button>
+  </div>
+
+  <div class="footer">
+    Clicking this icon wakes up the panel.
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
